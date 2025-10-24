@@ -35,9 +35,12 @@
 ```powershell
 pip install PyQt5 cloudscraper beautifulsoup4
 pip install jmcomic -i https://pypi.org/project -U   #jm api库下载
+```
 
 **[启动]**
+```
 python app/main.py
+```
  首次运行会自动将下载目录初始化为 ~/Downloads/JMComic，可在“设置”中修改并保存。
  若遇到模块导入问题，
  app/main.py会将项目根目录加入 sys.path 以确保 ui/*、core/* 可导入。
@@ -96,6 +99,7 @@ core/resources.py
 get_resource_path()
  定位资源与 .ui 文件。
 项目结构
+```
 e:/PICDOWNLOADER/
 ├─ app/
 │  └─ main.py                  # 程序入口：修正 sys.path，加载主窗体
@@ -110,7 +114,7 @@ e:/PICDOWNLOADER/
 │  └─ bindings.py              # UI 与逻辑绑定（信号/线程/状态）
 ├─ jmcomic_downloader.py       # 旧版单文件（对照参考，不作为入口）
 └─ readme.md                   # 说明文档（本文件）
-
+```
 
 常见问题（FAQ）
 封面不显示/搜索失败
@@ -124,8 +128,10 @@ e:/PICDOWNLOADER/
 
 开发
 安装依赖：
+```
 powershell
 pip install PyQt5 cloudscraper beautifulsoup4 jmcomic
+```
 UI 建议通过 Qt Designer 修改 
 ui/MainWindow.ui
 ，再在 
@@ -134,7 +140,7 @@ ui/bindings.py
 
 打包与发布
 pip install pyinstaller
-
+```
 pyinstaller `
   --name JMComicDownloader `
   --icon favicon.ico `
@@ -145,8 +151,9 @@ pyinstaller `
   --paths e:\PICDOWNLOADER `
   --add-data "e:\PICDOWNLOADER\ui\MainWindow.ui;ui" `
   e:\PICDOWNLOADER\app\main.py
+```
 
-致谢
+# 致谢
 JMComic-Crawler-Python
 PyQt5 社区
 帮我测试的好兄弟@6DK
