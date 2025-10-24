@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>940</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>JMComic 漫画下载器</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tab_widget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_search">
+       <attribute name="title">
+        <string>🔍 搜索</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_search">
+        <item>
+         <layout class="QHBoxLayout" name="search_bar">
+          <item>
+           <widget class="QLineEdit" name="search_input">
+            <property name="placeholderText">
+             <string>搜索漫画</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="search_type_combo">
+            <item><property name="text"><string>专辑</string></property></item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="search_btn">
+            <property name="text"><string>搜索</string></property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="search_table">
+          <property name="columnCount"><number>7</number></property>
+          <column><property name="text"><string>封面</string></property></column>
+          <column><property name="text"><string>ID</string></property></column>
+          <column><property name="text"><string>标题</string></property></column>
+          <column><property name="text"><string>作者</string></property></column>
+          <column><property name="text"><string>标签</string></property></column>
+          <column><property name="text"><string>评分</string></property></column>
+          <column><property name="text"><string>操作</string></property></column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="search_pager">
+          <item>
+           <widget class="QPushButton" name="prev_page_btn">
+            <property name="text"><string>上一页</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="page_info_label">
+            <property name="text"><string>第 1 页</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="next_page_btn">
+            <property name="text"><string>下一页</string></property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spacer_search">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0">
+             <size><width>40</width><height>20</height></size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_download">
+       <attribute name="title">
+        <string>⬇️ 下载</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_download">
+        <item>
+         <layout class="QHBoxLayout" name="download_path_layout">
+          <item>
+           <widget class="QLineEdit" name="download_path_input">
+            <property name="placeholderText"><string>选择保存文件夹</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browse_download_btn">
+            <property name="text"><string>浏览</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="start_download_btn">
+            <property name="text"><string>开始下载</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="stop_download_btn">
+            <property name="text"><string>停止下载</string></property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="download_id_layout">
+          <item>
+           <widget class="QLineEdit" name="album_id_input">
+            <property name="placeholderText"><string>输入漫画ID</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="add_queue_btn">
+            <property name="text"><string>添加到队列</string></property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QListWidget" name="download_list"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="download_queue_toolbar">
+          <item>
+           <widget class="QPushButton" name="remove_queue_btn">
+            <property name="text"><string>删除选中</string></property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spacer_queue">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="progress_bar">
+          <property name="value"><number>0</number></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="log_output">
+          <property name="readOnly"><bool>true</bool></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_library">
+       <attribute name="title">
+        <string>📚 漫画库</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_library">
+        <item>
+         <widget class="QSplitter" name="library_splitter">
+          <property name="orientation"><enum>Qt::Horizontal</enum></property>
+          <widget class="QWidget" name="library_left_widget">
+           <layout class="QVBoxLayout" name="library_left">
+            <item>
+             <widget class="QComboBox" name="category_combo">
+              <item><property name="text"><string>全部</string></property></item>
+              <item><property name="text"><string>已下载</string></property></item>
+              <item><property name="text"><string>正在下载</string></property></item>
+              <item><property name="text"><string>收藏</string></property></item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="library_list"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="library_center_widget">
+           <layout class="QVBoxLayout" name="library_center">
+            <item>
+             <layout class="QHBoxLayout" name="reader_toolbar">
+              <item><widget class="QPushButton" name="reader_prev_btn"><property name="text"><string>上一页</string></property></widget></item>
+              <item><widget class="QLabel" name="reader_page_label"><property name="text"><string>0 / 0</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+              <item><widget class="QPushButton" name="reader_next_btn"><property name="text"><string>下一页</string></property></widget></item>
+              <item><widget class="QLineEdit" name="reader_jump_input"><property name="placeholderText"><string>跳转到页码</string></property></widget></item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="reader_image_label">
+              <property name="minimumSize"><size><width>400</width><height>300</height></size></property>
+              <property name="text"><string>阅读器</string></property>
+              <property name="alignment"><set>Qt::AlignCenter</set></property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="library_right_widget">
+           <layout class="QVBoxLayout" name="library_right">
+            <item>
+             <widget class="QTextEdit" name="details_text">
+              <property name="readOnly"><bool>true</bool></property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="details_buttons">
+              <item><widget class="QPushButton" name="read_btn"><property name="text"><string>阅读</string></property></widget></item>
+              <item><widget class="QPushButton" name="delete_btn"><property name="text"><string>删除</string></property></widget></item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="library_toolbar">
+          <item><widget class="QPushButton" name="library_refresh_btn"><property name="text"><string>刷新</string></property></widget></item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_settings">
+       <attribute name="title">
+        <string>⚙️ 设置</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_settings">
+        <item>
+         <layout class="QGridLayout" name="grid_download_settings">
+          <item row="0" column="0"><widget class="QLabel"><property name="text"><string>同时下载线程数</string></property></widget></item>
+          <item row="0" column="1"><widget class="QSpinBox" name="thread_count_spin"><property name="minimum"><number>1</number></property><property name="maximum"><number>10</number></property><property name="value"><number>3</number></property></widget></item>
+          <item row="1" column="0"><widget class="QLabel"><property name="text"><string>重试次数</string></property></widget></item>
+          <item row="1" column="1"><widget class="QSpinBox" name="retry_count_spin"><property name="minimum"><number>1</number></property><property name="maximum"><number>5</number></property><property name="value"><number>3</number></property></widget></item>
+          <item row="2" column="0"><widget class="QLabel"><property name="text"><string>图片格式</string></property></widget></item>
+          <item row="2" column="1"><widget class="QComboBox" name="image_format_combo"><item><property name="text"><string>原始格式</string></property></item><item><property name="text"><string>JPG</string></property></item><item><property name="text"><string>PNG</string></property></item><item><property name="text"><string>WEBP</string></property></item></widget></item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="grid_ui_settings">
+          <item row="0" column="0"><widget class="QLabel"><property name="text"><string>主题</string></property></widget></item>
+          <item row="0" column="1"><widget class="QComboBox" name="theme_combo"><item><property name="text"><string>深色主题</string></property></item><item><property name="text"><string>浅色主题</string></property></item></widget></item>
+          <item row="1" column="0" colspan="2"><widget class="QCheckBox" name="auto_update_check"><property name="text"><string>自动检查更新</string></property><property name="checked"><bool>true</bool></property></widget></item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QFormLayout" name="form_network_settings">
+          <item row="0" column="0"><widget class="QLabel" name="label_proxy"><property name="text"><string>HTTP 代理</string></property></widget></item>
+          <item row="0" column="1"><widget class="QLineEdit" name="proxy_input"><property name="placeholderText"><string>http://127.0.0.1:7890</string></property></widget></item>
+          <item row="1" column="0"><widget class="QLabel" name="label_timeout"><property name="text"><string>超时时间(秒)</string></property></widget></item>
+          <item row="1" column="1"><widget class="QSpinBox" name="timeout_spin"><property name="minimum"><number>5</number></property><property name="maximum"><number>120</number></property><property name="value"><number>30</number></property></widget></item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="save_settings_btn">
+          <property name="text"><string>保存设置</string></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
