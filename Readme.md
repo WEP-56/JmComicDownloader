@@ -126,7 +126,7 @@ e:/PICDOWNLOADER/
 漫画库空白
 漫画库与“下载路径”强绑定。修改路径或切换到漫画库页会自动刷新；启动时也会刷新。
 
-开发
+# 编辑与开发
 安装依赖：
 ```
 powershell
@@ -139,8 +139,8 @@ ui/bindings.py
  绑定事件与逻辑；遵循 PEP 8 代码风格。
 
 打包与发布
-pip install pyinstaller
 ```
+pip install pyinstaller
 pyinstaller `
   --name JMComicDownloader `
   --icon favicon.ico `
@@ -154,6 +154,7 @@ pyinstaller `
 ```
 
 # 致谢
-JMComic-Crawler-Python
-PyQt5 社区
+JMComic-Crawler-Python /n
+PyQt5 社区 /n
 帮我测试的好兄弟@6DK
+
